@@ -22,9 +22,12 @@ const Header = () => {
             </button>
           </ActionGroup>
           <ActionGroup>
-            <button>
+            <ButtonTablet>
               <User size={24} />
-            </button>
+            </ButtonTablet>
+            <ButtonDesktop>
+              SUBSCRIBE
+            </ButtonDesktop>
           </ActionGroup>
         </Row>
       </SuperHeader>
@@ -39,7 +42,23 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+  @media ${QUERIES.laptopAndUp}{
+    background-color: var(--color-white);
+  }
 `;
+const ButtonDesktop = styled(Button)`
+  display: none
+  @mmedia ${QUERIES.laptopAndUp}{
+    display: default;
+  }
+`
+const ButtonTablet = styled.button`
+  display: auto;
+  @media ${QUERIES.laptopAndUp}{
+    display: none;
+  }
+`
 
 const Row = styled(MaxWidthWrapper)`
   display: flex;
