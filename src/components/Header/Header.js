@@ -25,9 +25,14 @@ const Header = () => {
             <ButtonTablet>
               <User size={24} />
             </ButtonTablet>
-            <ButtonDesktop>
-              SUBSCRIBE
-            </ButtonDesktop>
+            <ButtonDesktopStack>
+              <Button>
+                SUBSCRIBE
+              </Button>
+              <LinkUser>
+                Alredy a subscriber
+              </LinkUser>
+            </ButtonDesktopStack>   
           </ActionGroup>
         </Row>
       </SuperHeader>
@@ -45,16 +50,25 @@ const SuperHeader = styled.div`
 
   @media ${QUERIES.laptopAndUp}{
     background-color: var(--color-white);
+    color: black;
+    margin: 16px 120px;
   }
 `;
-const ButtonDesktop = styled(Button)`
-  display: none
-  @mmedia ${QUERIES.laptopAndUp}{
-    display: default;
+const ButtonDesktopStack = styled.div`
+  display: none;
+  @media ${QUERIES.laptopAndUp}{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
+const LinkUser = styled.button`
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 14px;
+`
 const ButtonTablet = styled.button`
-  display: auto;
+  display: inherit;
   @media ${QUERIES.laptopAndUp}{
     display: none;
   }
@@ -84,6 +98,10 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+  @media ${QUERIES.laptopAndUp}{
+    margin-top: -64px;
+    margin: -114px 120px 48px;
+  }
 `;
 
 export default Header;
