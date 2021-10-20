@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import { QUERIES } from '../../constants';
 
 const MainStoryGrid = () => {
   return (
@@ -45,27 +46,58 @@ const MainStoryGrid = () => {
 };
 
 const Wrapper = styled.div`
+  --paddingSection: 16px;
   display: grid;
   grid-template-areas:
     'main-story'
     'secondary-stories'
     'opinion-stories'
     'advertisement';
-  gap: 48px;
+  gap: 16px;
   margin-bottom: 48px;
+  
+  @media ${QUERIES.tabletOnly}{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      'main-story main-story secondary-stories'
+      'advertisement advertisement advertisement'
+      'opinion-stories opinion-stories opinion-stories';
+  }
+  @media ${QUERIES.laptopAndUp}{
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      'main-story main-story secondary-stories secondary-stories opinion-stories'
+      'main-story main-story secondary-stories secondary-stories opinion-stories'
+      'main-story main-story advertisement advertisement advertisement';
+      margin: 20px 10px;
+  }
 `;
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+
+  @media ${QUERIES.tabletAndUp}{
+    padding-right: 16px;
+    border-right: 1px solid #D0CDC8;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+  @media ${QUERIES.laptopAndUp}{
+    padding-right: 16px;
+    border-right: 1px solid #D0CDC8;
+  }
 `;
 
 const StoryList = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  
+  @media ${QUERIES.tabletOnly}{
+    &:nth-of-type(2){
+      grid-auto-flow: column;
+    }
+  } 
 `;
 
 const OpinionSection = styled.section`
@@ -74,6 +106,9 @@ const OpinionSection = styled.section`
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+  @media ${QUERIES.laptopAndUp}{
+    border-top: 1px solid #D0CDC8;
+  }
 `;
 
 export default MainStoryGrid;

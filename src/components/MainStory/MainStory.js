@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const MainStory = ({
   id,
@@ -44,6 +45,18 @@ const Abstract = styled.p`
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+  margin-bottom: 1em;
+
+  @media ${QUERIES.tabletAndUp}{
+    -webkit-line-clamp: 13;
+  }
+  @media ${QUERIES.laptopAndUp}{
+    -webkit-line-clamp: 7;
+  }
 `;
 
 const Location = styled.span`
@@ -53,6 +66,7 @@ const Location = styled.span`
 const ReadMore = styled.a`
   font-weight: var(--font-weight-medium);
   font-style: italic;
+  display: revert;
 
   &:hover {
     text-decoration: underline;

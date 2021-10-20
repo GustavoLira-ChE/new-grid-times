@@ -51,7 +51,7 @@ const SuperHeader = styled.div`
   @media ${QUERIES.laptopAndUp}{
     background-color: var(--color-white);
     color: black;
-    margin: 16px 120px;
+    margin: 16px 10px;
   }
 `;
 const ButtonDesktopStack = styled.div`
@@ -100,7 +100,7 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-bottom: 48px;
   @media ${QUERIES.laptopAndUp}{
     margin-top: -64px;
-    margin: -114px 120px 48px;
+    margin: -114px 10px 48px;
   }
 `;
 
